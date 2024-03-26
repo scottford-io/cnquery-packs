@@ -1,0 +1,17 @@
+# Copyright (c) Mondoo, Inc.
+# SPDX-License-Identifier: BUSL-1.1
+
+packs:
+  - uid: aws-full-inventory
+    name: AWS Asset Inventory
+    filters: asset.platform == "aws"
+    queries:
+      - uid: aws-account-data
+        title: AWS Account Data
+        mql: aws.account {id aliases organization {*}}
+      - uid: aws-access-analyzer-data
+        title: AWS Access Analyzer Data
+        mql: aws.accessAnalyzer.analyzers { arn createdAt lastResourceAnalyzed lastResourceAnalyzedAt name status tags type }
+      - uid: aws-acm-certificates
+        title: AWS ACM Certificates 
+        mql: aws.acm.certificates {*}
